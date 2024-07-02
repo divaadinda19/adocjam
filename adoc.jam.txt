@@ -1,0 +1,33 @@
+#|
+Copyright 2017 Rene Rivera
+Distributed under the Boost Software License, Version 1.0. (See
+accompanying file LICENSE.txt or copy at
+https://www.bfgroup.xyz/b2/LICENSE.txt)
+|#
+
+import scanner ;
+import type ;
+
+type ASCIIDOC : adoc asciidoc ;
+
+class asciidoc-scanner : common-scanner
+{
+    rule pattern ( )
+    {
+        return
+            "include::([^[]+)"
+            "image::([^[]+)"
+            "image:([^[]+)"
+        ;
+    }
+}
+# Tambahkan definisi untuk aturan Copyright
+rule Copyright ( )
+{
+    ECHO "This is a placeholder for the Copyright rule." ;
+}
+
+
+scanner.register asciidoc-scanner : include ;
+type.set-scanner ASCIIDOC : asciidoc-scanner ;
+
