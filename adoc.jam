@@ -21,6 +21,13 @@ class asciidoc-scanner : common-scanner
         ;
     }
 }
+# Tambahkan definisi untuk aturan Copyright
+rule Copyright ( )
+{
+    ECHO "This is a placeholder for the Copyright rule." ;
+}
+
 
 scanner.register asciidoc-scanner : include ;
 type.set-scanner ASCIIDOC : asciidoc-scanner ;
+
